@@ -149,6 +149,7 @@ Memulai wadah Webterm (node NAT akan secara otomatis berjalan sejak ditambahkan 
  ![image](https://user-images.githubusercontent.com/66856996/138508506-5657745a-7b4b-43c1-a7b7-c7bfa1050492.png)
 
 6.	Kembali ke Firefox, masukkan URL di bilah alamat, untuk mengakses situs web:
+
  ![image](https://user-images.githubusercontent.com/66856996/138508509-43badd6f-b73f-43a5-8d24-36f61cc14dd1.png)
 
 7.	 Anda tidak dibatasi hanya menggunakan penetapan alamat dinamis dengan node NAT. Anda juga dapat menetapkan pengalamatan IP secara statis, dan masih memiliki akses internet.
