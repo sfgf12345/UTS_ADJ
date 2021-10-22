@@ -1,7 +1,9 @@
 Connect GNS3 to the Internet (local server)
 1.	Untuk membuat topologi GNS3 baru, pilih sekelompok perangkat di Devices Toolbar dengan mengklik tombol Browse Routers
+
 ![image](https://user-images.githubusercontent.com/66856996/138505757-a59729da-1193-4e46-8f87-05db61a861ec.png)
 2.	Router yang tersedia akan tergantung pada konfigurasi GNS3 Anda. Dalam contoh ini tersedia router lokal dan router VM GNS3.
+
  ![image](https://user-images.githubusercontent.com/66856996/138505802-c6565ab2-2065-4758-9947-faed065e7179.png)
 
 3.	Seret dan lepas router lokal ke GNS3 Workspace. Sebuah instance dari node menjadi tersedia di Workspace:
