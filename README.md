@@ -121,3 +121,47 @@ R2#
  ![image](https://user-images.githubusercontent.com/66856996/138506003-b175a915-cc22-4025-a07f-86c9d52ec1fe.png)
 
 Hasil R2 mampu melakukan ping perangkat di Internet.
+
+
+------------------------------------------------------------------------------------------------------------------
+
+# The NAT node
+
+Dimulai dengan GNS3 2.0, node NAT menjadi tersedia. Node ini memungkinkan Anda untuk menghubungkan topologi ke internet melalui NAT. Node Internet tidak digunakan lagi untuk node ini, dan node Cloud.
+1.	Untuk menambahkan simpul NAT ke topologi, seret dan lepas ke ruang kerja. Anda akan diminta untuk menentukan jenis server yang ingin Anda gunakan, untuk menjalankan node NAT. Artikel ini akan menggunakan wadah buruh pelabuhan Webterm untuk menguji konektivitas internet, sehingga jenis server perlu disetel ke GNS3 VM, karena ini dilakukan pada workstation Win10:
+  ![image](https://user-images.githubusercontent.com/66856996/138508456-f668cb8a-798d-4657-992c-cca5485b9526.png)
+
+2.	Selanjutnya, web docker Webterm juga akan ditambahkan ke workspace:
+
+ ![image](https://user-images.githubusercontent.com/66856996/138508469-faf86232-91d9-4779-b52e-133076ee74b9.png)
+
+3.	Untuk memungkinkan lebih dari satu node topologi memiliki akses ke internet, perlu untuk menghubungkan switch atau router ke node NAT, dan kemudian menghubungkan node topologi ke perangkat lain.
+Untuk kesederhanaan, sakelar ethernet bawaan akan terhubung ke node NAT, dan wadah Webterm akan terhubung ke sakelar:
+
+ ![image](https://user-images.githubusercontent.com/66856996/138508482-f342b3d2-1488-4e9d-870a-3fffbe771e9b.png)
+
+4.	Anda mengaktifkan DHCP atau secara manual mengkonfigurasi penetapan IP statis ke wadah buruh pelabuhan seperti Webterm, dengan mengklik kanan padanya saat dimatikan, lalu pilih "Edit konfigurasi", lalu untuk mengkonfigurasi wadah ini untuk menggunakan DHCP, Anda batalkan komentar pada dua baris yang ditunjukkan pada gambar di bawah ini, dan klik Simpan:
+ ![image](https://user-images.githubusercontent.com/66856996/138508495-5d4c272d-c361-4a57-a666-449897b5f53c.png)
+
+5.	(batalkan komentar berarti menghilangkan simbol '#' di depan baris tersebut. Simbol itu menyebabkan sistem tidak membaca baris tersebut, dan biasanya digunakan untuk menambahkan komentar ke kode, yang seharusnya tidak diproses).
+Memulai wadah Webterm (node NAT akan secara otomatis berjalan sejak ditambahkan ke topologi) dan membuka konsolnya akan menghasilkan jendela VNC yang muncul. Klik simbol "Pulihkan" di sudut kanan atas Firefox, untuk mengeluarkannya dari tampilan layar penuh, lalu klik kiri pada latar belakang hitam dan memilih "Terminal" akan membuka jendela terminal, kemudian menggunakan perintah 'ifconfig' di terminal akan menunjukkan bahwa DHCP yang berjalan pada node NAT memberi wadah ini alamat 192.168.122.200 dari kumpulannya:
+
+ ![image](https://user-images.githubusercontent.com/66856996/138508506-5657745a-7b4b-43c1-a7b7-c7bfa1050492.png)
+
+6.	Kembali ke Firefox, masukkan URL di bilah alamat, untuk mengakses situs web:
+ ![image](https://user-images.githubusercontent.com/66856996/138508509-43badd6f-b73f-43a5-8d24-36f61cc14dd1.png)
+
+7.	 Anda tidak dibatasi hanya menggunakan penetapan alamat dinamis dengan node NAT. Anda juga dapat menetapkan pengalamatan IP secara statis, dan masih memiliki akses internet.
+
+Hentikan wadah Webterm, klik kanan, dan pilih "Edit konfigurasi" lagi.
+
+Kali ini, Anda akan mengomentari dua baris untuk DHCP, dan menghapus komentar pada baris di bagian Static IP dari file /etc/network/interfaces;
+
+8.	Klik Simpan, mulai wadah, dan konsol kembali ke dalamnya. Membuka terminal dan menjalankan "ifconfig" akan menunjukkan bahwa wadah menggunakan alamat IP yang ditetapkan secara statis:
+
+ ![image](https://user-images.githubusercontent.com/66856996/138508521-a2104ee3-4836-421e-a2d7-968594b2a678.png)
+
+9.	Entering a URL in the Firefox address bar will open a website:
+
+ ![image](https://user-images.githubusercontent.com/66856996/138508531-4683def3-f59d-4a77-9713-8ad4f5cd11dc.png)
+
